@@ -41,8 +41,7 @@ async function getInspirationChannels(question: string) {
       await button.click();
     }
 
-    //TODO: sleep for 2 seconds to allow the chatbot to respond, i need to find a better way to do this
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await page.waitForSelector(".metric-container")
 
     const chatResponseNode = await page.waitForSelector(
       'div.stChatMessage img[alt="assistant avatar"] + div',
